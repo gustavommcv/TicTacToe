@@ -12,7 +12,7 @@ namespace match {
         }
 
         public Position ToPosition() {
-            throw new NotImplementedException();
+            return new Position(Row - 1, Column - 'a');
         }
 
         public override string ToString() {

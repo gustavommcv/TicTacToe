@@ -9,5 +9,9 @@ namespace gameBoard {
             Symbol = symbol;
             Position = position;
         }
+
+        public override string ToString() {
+            return Symbol.ToString();
+        }
     }
 }

@@ -12,5 +12,14 @@ namespace match {
             CurrentPlayer = Symbol.X;
             GameBoard = new GameBoard();
         }
+
+        public void ChangePlayer() {
+            CurrentPlayer = (CurrentPlayer == Symbol.X) ? Symbol.O : Symbol.X;
+        }
+
+        public void PerformsPlay(Position p) {
+            GameBoard.AddPiece(CurrentPlayer, p);
+            ChangePlayer();
+        }
     }
 }

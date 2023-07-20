@@ -1,4 +1,5 @@
-﻿using gameBoard.Exceptions;
+﻿using gameBoard.Enums;
+using gameBoard.Exceptions;
 
 namespace gameBoard {
     internal class GameBoard {
@@ -12,13 +13,11 @@ namespace gameBoard {
             Pieces = new Piece[Rows, Columns];
         }
 
-        public void AddPiece(Position pos) {
+        public void AddPiece(Symbol cp, Position pos) {
             if (ExistsPieceOnBoard(pos)) {
                 throw new BoardException("There is already a piece in this position");
             }
-
-            throw new NotImplementedException();
-
+            Pieces[pos.Row, pos.Column] = new Piece(cp, pos);
         }
 
         // Returning a piece in a specific position
