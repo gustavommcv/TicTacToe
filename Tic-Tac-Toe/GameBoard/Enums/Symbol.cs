@@ -1,4 +1,4 @@
-﻿namespace GameBoard.Enums {
+﻿namespace gameBoard.Enums {
     internal enum Symbol {
         X,
         O

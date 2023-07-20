@@ -1,4 +1,4 @@
-﻿namespace GameBoard {
+﻿namespace gameBoard {
     internal class Position {
         public int Row { get; private set; }
         public int Column { get; private set; }

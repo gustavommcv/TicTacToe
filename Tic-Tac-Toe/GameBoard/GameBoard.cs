@@ -1,6 +1,6 @@
-﻿using GameBoard.Exceptions;
+﻿using gameBoard.Exceptions;
 
-namespace GameBoard {
+namespace gameBoard {
     internal class GameBoard {
         public int Columns { get; private set; }
         public int Rows { get; private set; }
@@ -21,15 +21,19 @@ namespace GameBoard {
 
         }
 
-        // Checks if there is a piece at the parameter position
-        public Piece PieceExists(Position pos) {
+        // Returning a piece in a specific position
+        public Piece GetPiece(Position pos) {
             return Pieces[pos.Row, pos.Column];
+        }
+
+        public Piece GetPiece(int row, int column) {
+            return Pieces[row, column];
         }
 
         // Checks if the position is occupied by another piece
         public bool ExistsPieceOnBoard(Position pos) {
             ValidatePosition(pos);
-            return PieceExists(pos) != null;
+            return GetPiece(pos) != null; // Checks if there is a piece at the parameter position
         }
 
         // Checks if the position is inside the tray

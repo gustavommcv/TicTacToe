@@ -1,4 +1,4 @@
-﻿namespace Match {
+﻿namespace match {
     internal class MatchPosition {
 
     }

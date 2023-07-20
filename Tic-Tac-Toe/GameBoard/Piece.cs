@@ -1,6 +1,6 @@
-﻿using GameBoard.Enums;
+﻿using gameBoard.Enums;
 
-namespace GameBoard {
+namespace gameBoard {
     internal class Piece {
         public Symbol Symbol { get; private set; }
         public Position Position { get; private set; }

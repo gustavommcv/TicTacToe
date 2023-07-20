@@ -1,5 +1,16 @@
-﻿namespace Match {
-    internal class Match {
+﻿using gameBoard.Enums;
+using gameBoard;
 
+namespace match {
+    internal class Match {
+        public GameBoard GameBoard { get; set; }
+        public bool Finished { get; private set; }
+        public Symbol CurrentPlayer { get; private set; }
+
+        public Match() {
+            Finished = false;
+            CurrentPlayer = Symbol.X;
+            GameBoard = new GameBoard();
+        }
     }
 }
