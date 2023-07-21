@@ -15,8 +15,12 @@ while (!match.Finished) {
 
         match.PerformsPlay(p);
 
-    } catch (BoardException ex) {
+    } 
+    catch (BoardException ex) {
         Console.WriteLine(ex.Message);
         Console.ReadLine();
     }
 }
+
+Console.Clear();
+Screen.DrawMatch(match);

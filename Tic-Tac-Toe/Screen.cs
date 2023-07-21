@@ -14,7 +14,7 @@ namespace Tic_Tac_Toe {
             if (!match.Finished) {
                 Console.WriteLine("Waiting for player: " + match.CurrentPlayer.ToString());
             } else {
-                Console.WriteLine("Winner: ");
+                Console.WriteLine("Winner: " + match.CurrentPlayer.ToString());
             }
         }
 
