@@ -20,7 +20,9 @@ namespace Tic_Tac_Toe {
 
         public static void DrawBoard(GameBoard board) {
             for (int i = 0; i < board.Rows; i++) {
+                Console.Write($"{i + 1} ");
                 for (int j = 0; j < board.Columns; j++) {
+                    
                     DrawPiece(board.GetPiece(i, j));
                     if (j < board.Columns - 1) {
                         Console.Write("|");
@@ -30,9 +32,10 @@ namespace Tic_Tac_Toe {
                 Console.WriteLine();
 
                 if (i < board.Rows - 1) {
-                    Console.WriteLine(new string('-', board.Columns * 4 - 1));
-                }
+                    Console.WriteLine("  " + new string('-', board.Columns * 4 - 1));
+                }          
             }
+            Console.WriteLine("   A   B   C");
         }
 
         public static void DrawPiece(Piece piece) {
