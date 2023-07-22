@@ -14,7 +14,16 @@ namespace Tic_Tac_Toe {
             if (!match.Finished) {
                 Console.WriteLine("Waiting for player: " + match.CurrentPlayer.ToString());
             } else {
-                Console.WriteLine("Winner: " + match.CurrentPlayer.ToString());
+                if(match.CurrentPlayer == Symbol.O) {
+                    Console.Write("Winner: ");
+                    ConsoleColor aux = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(match.CurrentPlayer.ToString());
+                    Console.ForegroundColor = aux;
+                } else {
+                    Console.WriteLine("Winner: " + match.CurrentPlayer.ToString());
+                }
+                
             }
         }
 
@@ -55,7 +64,8 @@ namespace Tic_Tac_Toe {
 
         public static MatchPosition ReadPosition() {
             string p = Console.ReadLine().ToLower();
-
+            if (p.Length != 2)
+                throw new BoardException("Invalid position");
             int row = int.Parse(p[0] + "");
             char column = p[1];
 

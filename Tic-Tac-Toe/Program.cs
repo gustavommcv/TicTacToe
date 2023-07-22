@@ -20,6 +20,10 @@ while (!match.Finished) {
         Console.WriteLine(ex.Message);
         Console.ReadLine();
     }
+    catch(FormatException ex) {
+        Console.WriteLine(ex.Message);
+        Console.ReadLine();
+    }
 }
 
 Console.Clear();
