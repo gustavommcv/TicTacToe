@@ -1,11 +1,12 @@
 ﻿using gameBoard;
+using gameBoard.Enums;
 using gameBoard.Exceptions;
 using match;
 using Tic_Tac_Toe;
 
 Match match = new Match();
 
-while (!match.Finished) {
+while (match.Finished == Finished.None) {
     try {
         Console.Clear();
         Screen.DrawMatch(match);

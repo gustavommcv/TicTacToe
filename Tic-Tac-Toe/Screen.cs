@@ -11,10 +11,12 @@ namespace Tic_Tac_Toe {
             DrawBoard(match.GameBoard);
             Console.WriteLine();
             
-            if (!match.Finished) {
+            if (match.Finished == Finished.None) {
                 Console.WriteLine("Waiting for player: " + match.CurrentPlayer.ToString());
-            } else {
+            } else if (match.Finished == Finished.Win) {
                 Console.WriteLine("Winner: " + match.CurrentPlayer.ToString());
+            } else {
+                Console.WriteLine("Draw!"); 
             }
         }
 
