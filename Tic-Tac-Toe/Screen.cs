@@ -54,7 +54,7 @@ namespace Tic_Tac_Toe {
         }
 
         public static MatchPosition ReadPosition() {
-            string p = Console.ReadLine();
+            string p = Console.ReadLine().ToLower();
 
             int row = int.Parse(p[0] + "");
             char column = p[1];
