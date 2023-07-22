@@ -21,6 +21,10 @@ while (match.Finished == Finished.None) {
         Console.WriteLine(ex.Message);
         Console.ReadLine();
     }
+    catch(FormatException ex) {
+        Console.WriteLine(ex.Message);
+        Console.ReadLine();
+    }
 }
 
 Console.Clear();

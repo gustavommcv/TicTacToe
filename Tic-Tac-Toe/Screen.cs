@@ -14,7 +14,15 @@ namespace Tic_Tac_Toe {
             if (match.Finished == Finished.None) {
                 Console.WriteLine("Waiting for player: " + match.CurrentPlayer.ToString());
             } else if (match.Finished == Finished.Win) {
-                Console.WriteLine("Winner: " + match.CurrentPlayer.ToString());
+                if (match.CurrentPlayer == Symbol.O) {
+                    Console.Write("Winner: ");
+                    ConsoleColor aux = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(match.CurrentPlayer.ToString());
+                    Console.ForegroundColor = aux;
+                } else {
+                    Console.WriteLine("Winner: " + match.CurrentPlayer.ToString());
+                }
             } else {
                 Console.WriteLine("Draw!"); 
             }
@@ -22,7 +30,9 @@ namespace Tic_Tac_Toe {
 
         public static void DrawBoard(GameBoard board) {
             for (int i = 0; i < board.Rows; i++) {
+                Console.Write($"{i + 1} ");
                 for (int j = 0; j < board.Columns; j++) {
+                    
                     DrawPiece(board.GetPiece(i, j));
                     if (j < board.Columns - 1) {
                         Console.Write("|");
@@ -32,9 +42,10 @@ namespace Tic_Tac_Toe {
                 Console.WriteLine();
 
                 if (i < board.Rows - 1) {
-                    Console.WriteLine(new string('-', board.Columns * 4 - 1));
-                }
+                    Console.WriteLine("  " + new string('-', board.Columns * 4 - 1));
+                }          
             }
+            Console.WriteLine("   A   B   C");
         }
 
         public static void DrawPiece(Piece piece) {
@@ -54,7 +65,8 @@ namespace Tic_Tac_Toe {
 
         public static MatchPosition ReadPosition() {
             string p = Console.ReadLine().ToLower();
-
+            if (p.Length != 2)
+                throw new BoardException("Invalid position");
             int row = int.Parse(p[0] + "");
             char column = p[1];
 

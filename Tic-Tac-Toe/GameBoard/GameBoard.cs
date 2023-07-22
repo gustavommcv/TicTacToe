@@ -36,7 +36,7 @@ namespace gameBoard {
         }
 
         // Checks if the position is inside the tray
-        public bool ValidPosition(Position pos) {
+        public bool ValidPosition(Position pos) {           
             if (pos.Row < 0 || pos.Row >= Rows || pos.Column < 0 || pos.Column >= Columns) {
                 return false;
             } else {
