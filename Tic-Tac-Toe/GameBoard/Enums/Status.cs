@@ -1,5 +1,5 @@
 ﻿namespace gameBoard.Enums {
-    internal enum Finished {
+    internal enum Status {
         None,
         Draw,
         Win

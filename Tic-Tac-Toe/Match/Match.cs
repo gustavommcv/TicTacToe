@@ -4,11 +4,11 @@ using gameBoard;
 namespace match {
     internal class Match {
         public GameBoard GameBoard { get; private set; }
-        public Finished Finished { get; private set; }
+        public Status Finished { get; private set; }
         public Symbol CurrentPlayer { get; private set; }
 
         public Match() {
-            Finished = Finished.None;
+            Finished = Status.None;
             CurrentPlayer = Symbol.X;
             GameBoard = new GameBoard();
         }
@@ -33,7 +33,7 @@ namespace match {
                     }
                 }
             }
-            Finished = Finished.Draw;
+            Finished = Status.Draw;
             return true;
         }
 
@@ -42,14 +42,14 @@ namespace match {
                 // Check rows
                 if (GameBoard.GetPiece(i, 0) != null && GameBoard.GetPiece(i, 1) != null && GameBoard.GetPiece(i, 0) != null && GameBoard.GetPiece(i, 2) != null)
                     if (GameBoard.GetPiece(i, 0).Symbol == GameBoard.GetPiece(i, 1).Symbol && GameBoard.GetPiece(i, 0).Symbol == GameBoard.GetPiece(i, 2).Symbol) {
-                        Finished = Finished.Win;
+                        Finished = Status.Win;
                         return true;
                     }
 
                 // Check columns
                 if (GameBoard.GetPiece(0, i) != null && GameBoard.GetPiece(1, i) != null && GameBoard.GetPiece(0, i) != null && GameBoard.GetPiece(2, i) != null)
                     if (GameBoard.GetPiece(0, i).Symbol == GameBoard.GetPiece(1, i).Symbol && GameBoard.GetPiece(0, i).Symbol == GameBoard.GetPiece(2, i).Symbol) {
-                        Finished = Finished.Win;
+                        Finished = Status.Win;
                         return true;
                     }
             }
@@ -57,13 +57,13 @@ namespace match {
             // Check diagonals
             if (GameBoard.GetPiece(0, 0) != null && GameBoard.GetPiece(1, 1) != null && GameBoard.GetPiece(0, 0) != null && GameBoard.GetPiece(2, 2) != null)
                 if (GameBoard.GetPiece(0, 0).Symbol == GameBoard.GetPiece(1, 1).Symbol && GameBoard.GetPiece(0, 0).Symbol == GameBoard.GetPiece(2, 2).Symbol) {
-                    Finished = Finished.Win;
+                    Finished = Status.Win;
                     return true;
                 }
 
             if (GameBoard.GetPiece(0, 2) != null && GameBoard.GetPiece(1, 1) != null && GameBoard.GetPiece(0, 2) != null && GameBoard.GetPiece(2, 0) != null)
                 if (GameBoard.GetPiece(0, 2).Symbol == GameBoard.GetPiece(1, 1).Symbol && GameBoard.GetPiece(0, 2).Symbol == GameBoard.GetPiece(2, 0).Symbol) {
-                    Finished = Finished.Win;
+                    Finished = Status.Win;
                     return true;
                 }
 

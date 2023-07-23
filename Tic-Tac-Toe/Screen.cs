@@ -2,7 +2,6 @@
 using gameBoard.Enums;
 using gameBoard.Exceptions;
 using match;
-using System;
 
 namespace Tic_Tac_Toe {
     internal static class Screen {
@@ -11,9 +10,9 @@ namespace Tic_Tac_Toe {
             DrawBoard(match.GameBoard);
             Console.WriteLine();
             
-            if (match.Finished == Finished.None) {
+            if (match.Finished == Status.None) {
                 Console.WriteLine("Waiting for player: " + match.CurrentPlayer.ToString());
-            } else if (match.Finished == Finished.Win) {
+            } else if (match.Finished == Status.Win) {
                 if (match.CurrentPlayer == Symbol.O) {
                     Console.Write("Winner: ");
                     ConsoleColor aux = Console.ForegroundColor;

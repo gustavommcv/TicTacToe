@@ -6,7 +6,7 @@ using Tic_Tac_Toe;
 
 Match match = new Match();
 
-while (match.Finished == Finished.None) {
+while (match.Finished == Status.None) {
     try {
         Console.Clear();
         Screen.DrawMatch(match);
