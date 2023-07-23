@@ -20,6 +20,10 @@ namespace gameBoard {
             Pieces[pos.Row, pos.Column] = new Piece(cp, pos);
         }
 
+        public void RemovePiece(Position pos) {
+            Pieces[pos.Row, pos.Column] = null;
+        }
+
         // Returning a piece in a specific position
         public Piece GetPiece(Position pos) {
             return Pieces[pos.Row, pos.Column];
@@ -48,6 +52,40 @@ namespace gameBoard {
             if (!ValidPosition(pos)) {
                 throw new BoardException("Invalid position");
             }
+        }
+
+        public bool IsFull() {
+            for (int i = 0; i < Rows; i++) {
+                for (int j = 0; j < Columns; j++) {
+                    if (Pieces[i, j] is null) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool CheckWinner(Symbol player) {
+            // Check rows
+            for (int i = 0; i < 3; i++) {
+                if (GetPiece(i, 0)?.Symbol == player && GetPiece(i, 1)?.Symbol == player && GetPiece(i, 2)?.Symbol == player)
+                    return true;
+            }
+
+            // Check columns
+            for (int i = 0; i < 3; i++) {
+                if (GetPiece(0, i)?.Symbol == player && GetPiece(1, i)?.Symbol == player && GetPiece(2, i)?.Symbol == player)
+                    return true;
+            }
+
+            // Check diagonals
+            if (GetPiece(0, 0)?.Symbol == player && GetPiece(1, 1)?.Symbol == player && GetPiece(2, 2)?.Symbol == player)
+                return true;
+
+            if (GetPiece(0, 2)?.Symbol == player && GetPiece(1, 1)?.Symbol == player && GetPiece(2, 0)?.Symbol == player)
+                return true;
+
+            return false;
         }
     }
 }

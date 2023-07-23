@@ -26,15 +26,11 @@ namespace match {
         }
 
         private bool CheckDraw() {
-            for (int i = 0; i < GameBoard.Rows; i++) {
-                for (int j = 0; j < GameBoard.Columns; j++) {
-                    if (GameBoard.Pieces[i, j] is null) {
-                        return false;
-                    }
-                }
+            if (GameBoard.IsFull()) {
+                Finished = Status.Draw;
+                return true;
             }
-            Finished = Status.Draw;
-            return true;
+            return false;
         }
 
         private bool CheckWinner() {
