@@ -21,8 +21,8 @@ while (match.Finished == Finished.None) {
         Console.WriteLine(ex.Message);
         Console.ReadLine();
     }
-    catch(FormatException ex) {
-        Console.WriteLine(ex.Message);
+    catch(FormatException) {
+        Console.WriteLine("Invalid position");
         Console.ReadLine();
     }
 }

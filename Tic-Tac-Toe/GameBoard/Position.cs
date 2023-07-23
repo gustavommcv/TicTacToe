@@ -7,9 +7,10 @@
             Row = row;
             Column = column;
         }
+
         public void SetPosition(int row, int column) {
-            this.Row = row;
-            this.Column = column;
+            Row = row;
+            Column = column;
         }
     }
 }

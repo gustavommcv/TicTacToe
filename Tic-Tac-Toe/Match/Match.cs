@@ -3,7 +3,7 @@ using gameBoard;
 
 namespace match {
     internal class Match {
-        public GameBoard GameBoard { get; set; }
+        public GameBoard GameBoard { get; private set; }
         public Finished Finished { get; private set; }
         public Symbol CurrentPlayer { get; private set; }
 

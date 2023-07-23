@@ -14,7 +14,7 @@ namespace gameBoard {
         }
 
         public void AddPiece(Symbol cp, Position pos) {
-            if (ExistsPieceOnBoard(pos)) {
+            if (ExistsPieceOnPosition(pos)) {
                 throw new BoardException("There is already a piece in this position");
             }
             Pieces[pos.Row, pos.Column] = new Piece(cp, pos);
@@ -30,13 +30,13 @@ namespace gameBoard {
         }
 
         // Checks if the position is occupied by another piece
-        public bool ExistsPieceOnBoard(Position pos) {
+        private bool ExistsPieceOnPosition(Position pos) {
             ValidatePosition(pos);
             return GetPiece(pos) != null; // Checks if there is a piece at the parameter position
         }
 
         // Checks if the position is inside the tray
-        public bool ValidPosition(Position pos) {           
+        private bool ValidPosition(Position pos) {           
             if (pos.Row < 0 || pos.Row >= Rows || pos.Column < 0 || pos.Column >= Columns) {
                 return false;
             } else {
