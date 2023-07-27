@@ -6,11 +6,13 @@ namespace match {
         public GameBoard GameBoard { get; private set; }
         public Status Finished { get; private set; }
         public Symbol CurrentPlayer { get; private set; }
+        public bool vsBot { get; set; } // Variable to track if playing against the bot or another player
 
         public Match() {
             Finished = Status.None;
             CurrentPlayer = Symbol.X;
             GameBoard = new GameBoard();
+            vsBot = false;
         }
 
         private void ChangePlayer() {

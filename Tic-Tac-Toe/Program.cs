@@ -6,16 +6,22 @@ using Tic_Tac_Toe;
 
 class Program {
     static void Main(string[] args) {
+
+        Screen.Menu();
+        string option = Console.ReadLine();
+
         Match match = new Match();
         Bot bot = new Bot(Symbol.O); // Create an instance of the bot with the symbol O
+
+        if (option == "1") { match.vsBot = true; }
 
         while (match.Finished == Status.None) {
             try {
                 Console.Clear();
                 Screen.DrawMatch(match);
 
-                if (match.CurrentPlayer == Symbol.X) {
-                    // If it is the human player's turn (X), ask him/her to choose the position.
+                if (!match.vsBot || match.CurrentPlayer == Symbol.X) {
+                    // If playing against another player or it is the human player's turn (X), ask for input.
                     Position p = Screen.ReadPosition().ToPosition();
                     match.GameBoard.ValidatePosition(p);
 

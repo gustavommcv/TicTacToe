@@ -6,6 +6,13 @@ using match;
 namespace Tic_Tac_Toe {
     internal static class Screen {
 
+        public static void Menu() {
+            Console.WriteLine("Welcome to Tic-Tac-Toe!");
+            Console.WriteLine("Choose an option:");
+            Console.WriteLine("1. Play against the Bot");
+            Console.WriteLine("2. Play with another player");
+        }
+
         public static void DrawMatch(Match match) {
             DrawBoard(match.GameBoard);
             Console.WriteLine();
